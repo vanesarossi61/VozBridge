@@ -1,0 +1,30 @@
+[project]
+name = "voz-bridge"
+version = "1.0.0"
+description = "CoPaw <-> OpenClaw Assistant API Bridge - Translates OpenAI Chat Completions to AgentScope format with real-time SSE streaming"
+requires-python = ">=3.11"
+authors = [{name = "Vane Rossi"}]
+license = {text = "MIT"}
+
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+voz-bridge = "voz_bridge.main:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
